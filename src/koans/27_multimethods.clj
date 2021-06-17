@@ -38,7 +38,7 @@
     (multimethod-with-args :path-one {:first-opt 1
                                       :second-opt 2}))
  
- "이것은 우리가 각 메소드 구현에서 각기 다를 작업을 가능하게 한다"
+ "이것은 우리가 각 메소드 구현에서 각기 다른 작업을 가능하게 한다"
  (= __
     (multimethod-with-args :path-two {:first-opt 1
                                       :second-opt [0 1 2]})))
