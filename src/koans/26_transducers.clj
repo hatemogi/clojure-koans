@@ -9,22 +9,22 @@
      (filter even?)))
 
 (meditations
- "A sequence operation with only one argument often returns a transducer"
+ "인수를 하나만 사용한 시퀀스 작업(sequence operations)들은 종종 트렌스듀서를 반환한다"
  (= __
     (sequence example-transducer [1 2 3]))
 
- "Consider that sequence operations can be composed as transducers"
+ "시퀀스 작업들은 트렌스듀서로 합성가능하다"
  (= __
     (transduce transforms conj [1 2 3]))
 
- "We can do this eagerly"
+ "즉시(eager) 적용 하거나"
  (= __
     (into [] transforms [1 2 3]))
 
- "Or lazily"
+ "게으르게(lazy) 적용 하거나"
  (= __
     (sequence transforms [1 2 3]))
 
- "The transduce function can combine mapping and reduction"
+ "트렌스듀서는 map 과 reduce 을 결합 할 수 있다"
  (= __
     (transduce transforms + [1 2 3])))

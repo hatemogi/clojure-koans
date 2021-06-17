@@ -6,13 +6,13 @@
     {:league "National League"}))
 
 (meditations
-  "Some objects can be tagged using the with-meta function"
+  "일부 객체는 with-meta 함수를 사용하여 태깅 할 수 있다"
   (= __ (meta giants))
 
-  "Or more succinctly with a reader macro"
+  "또는 리더 매크로로 더 간결하게"
   (= __ (meta '^{:division "West"} Giants))
 
-  "While others can't"
+  "태깅이 안되는 객체도 있다"
   (= __ (try
           (with-meta
             2
@@ -28,10 +28,10 @@
   (= __ (meta (merge {:a 1 :b 2}
                      '^{:foo :bar} {:b 3 :c 4})))
 
-  "Metadata can be used as a type hint to avoid reflection during runtime"
+  "메타 데이터를 유형 힌트로 사용하여 런타임 중 리플렉션을 피할 수 있다"
   (= __ (#(.charAt ^String % 0) "Cast me"))
 
-  "You can directly update an object's metadata"
+  "객체의 메타 데이터를 직접 업데이트 할 수 있다"
   (= 8 (let [giants
              (with-meta
                'Giants
@@ -39,13 +39,13 @@
          (swap! (:world-series-titles (meta giants)) __)
          @(:world-series-titles (meta giants))))
 
-  "You can also create a new object from another object with metadata"
+  "다른 객체로 부터 메타 데이터와 함께 세로운 객체를 만들 수 있다"
   (= {:league "National League" :park "AT&T Park"}
      (meta (vary-meta giants
                       assoc __ __)))
 
-  "But it won't affect behavior like equality"
+  "하지만 동등성에 영향을 주지는 않는다"
   (= __ (vary-meta giants dissoc :league))
 
-  "Or the object's printed representation"
+  "또는 객체의 출력에"
   (= __ (pr-str (vary-meta giants dissoc :league))))

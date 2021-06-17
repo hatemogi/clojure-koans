@@ -3,23 +3,23 @@
 
 
 (meditations
-  "Wrap a quote around a list to suppress evaluation"
+  "평가하지 않기위하여 quote 으로 감싸라"
   (= (quote (1 2 3 4 5)) __)
 
-  "There is a shortcut too!"
+  "quote 의 단축도 사용할 수 있다"
   (= (quote __) '(1 2 3 4 5))
 
-  "You can quote symbols as well as lists... without evaluation!"
+  "심볼에도 quote 를 사용할 수 있다"
   (= __ (let [age 9] (quote age)))
 
-  "You can use a literal list as a data collection without having Clojure try to call a function"
+  "Clojure가 함수를 호출하지 않아도, 데이터 컬렉션으로써 list 를 사용할수있다"
   (= (cons 1 (__ (2 3))) (list 1 2 3) (cons 1 [2 3]))
 
-  "The quote affects all of its arguments, not just the top level"
+  "quote 는 단순히 최상위 레벨뿐만 아니라 모든 인수에 적용된다"
   (= (list 1 __) '(1 (+ 2 3)))
 
-  "Syntax-quote (`) acts similarly to the normal quote"
+  "Syntax-quote (`) 도 일반 quote (') 과 유사하다"
   (= (list __ __ __) `(1 2 3) '(1 2 3))
 
-  "Unquote (~) within a syntax-quoted expression lets you mark specific expressions as requiring evaluation"
+  "Syntax-quote 구문 내에서 평가가 필요하면 Unquote (~) 를 이용해라"
   (= (list __ __) `(1 ~(+ 2 3)) '(1 5)))

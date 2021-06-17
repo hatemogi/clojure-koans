@@ -3,68 +3,68 @@
             [clojure.string :as string]))
 
 (meditations
-  "A string is nothing more than text surrounded by double quotes"
+  "문자열은 단지 큰 따옴표로 둘러쌓인 텍스트일 뿐이다"
   (= __ "hello")
 
-  "But double quotes are just magic on top of something deeper"
+  "그러나 큰 따옴표는 단지 더 깊은 것 위의 마법이다"
   (= __ (str 'world))
 
-  "You can do more than create strings, you can put them together"
+  "문자열을 만드는것 이상을 할수있고, 문자열에 함께 넣을 수 있다"
   (= "Cool right?" (str __ __))
 
-  "You can even get certain characters"
+  "특정 문자(Characters) 를 얻을수 있다"
   (= \C (get "Characters" __))
 
-  "Or even count the characters"
+  "또는 문자 개수를 셀 수 있다"
   (= __ (count "Hello World"))
 
-  "But strings and characters are not the same"
+  "그러나 문자열과 문자는 같지 않다"
   (= __ (= \c "c"))
 
-  "What if you only wanted to get part of a string?"
+  "문자열의 일부분만 얻을수 있다"
   (= "World" (subs "Hello World" __ __))
 
-  "How about joining together elements in a list?"
+  "리스트의 요소들을 결합 할 수 있다"
   (= __ (string/join '(1 2 3)))
 
-  "What if you wanted to separate them out?"
+  "그것들을 분리하여 결합 할 수 있다"
   (= "1, 2, 3" (string/join __ '(1 2 3)))
 
-  "Maybe you want to separate out all your lines"
+  "모든 라인을 분리하고 싶을수도 있다"
   (= [__ __ __] (string/split-lines "1\n2\n3"))
 
-  "You may want to make sure your words are backwards"
+  "단어를 거꾸로 할수도 있다"
   (= __ (string/reverse "hello"))
 
-  "Maybe you want to find the index of the first occurrence of a substring"
+  "처음 발생한 부분 문자열(sub string)의 위치(index) 를 찾고 싶을것이다"
   (= 0 (string/index-of "hello world" __))
 
-  "Or maybe the last index of the same"
+  "아니면 마지막에 발생한 위치를 찾고 싶을것이다"
   (= __ (string/last-index-of "hello world, hello" "hello"))
 
-  "But when something doesn't exist, nothing is found"
+  "하지만 찾을 수 없다면, 아무것도 발견되지 않는다"
   (= __ (string/index-of "hello world" "bob"))
 
-  "Sometimes you don't want whitespace cluttering the front and back"
+  "때때로 공백이 앞뒤를 지저분하게 만드는것을 원하지 않는다"
   (= __ (string/trim "  \nhello world \t \n"))
 
-  "You can check if something is a char"
+  "문자인지 확인할 수 있다"
   (= __ (char? \c))
 
-  "But it may not be"
+  "문자가 아닌지 또한 확인할 수 있다"
   (= __ (char? "a"))
 
-  "But chars aren't strings"
+  "그러나 문자는 문자열이 아니다"
   (= __ (string? \b))
 
-  "Strings are strings"
+  "문자열은 문자열이다"
   (= true (string? __))
 
-  "Some strings may be blank"
+  "몇몇 문자열은 비어있을수도 있다"
   (= __ (string/blank? ""))
 
-  "Even if at first glance they aren't"
+  "언뜻 보기에는 비어 있어 보이지 않더라도"
   (= __ (string/blank? " \n \t  "))
 
-  "However, most strings aren't blank"
+  "하지만 대부분의 문자열은 비어있지 않다"
   (= __ (string/blank? "hello?\nare you out there?")))

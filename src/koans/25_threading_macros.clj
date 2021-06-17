@@ -14,23 +14,23 @@
   (map :a coll))
 
 (meditations
- "We can use thread first for more readable sequential operations"
+ "더 읽기 쉬운 순차 작업을 위하여 thread first 를 사용할수 있다"
  (= __
     (-> {}
         (assoc :a 1)))
 
- "Consider also the case of strings"
+ "무자열을 사용할 때에도 고려할 수 있다"
  (= __
     (-> "Hello world"
         (str ", and moon")
         (str ", and stars")))
 
- "When a function has no arguments to partially apply, just reference it"
+ "함수에 부분 적용할 인수가 더 없다면, 그냥 참조만 해도 된다"
  (= __
     (-> "String with a trailing space "
         clojure.string/trim))
 
- "Most operations that take a scalar value as an argument can be threaded-first"
+ "스칼라값을 인수로 취하는 경우, 대부분 thread-first 를 사용 할 수 있다"
  (= __
     (-> {}
         (assoc :a 1)
@@ -40,18 +40,18 @@
         (update-in [:c :e] inc)
         (get-in [:c :e])))
 
- "We can use functions we have written ourselves that follow this pattern"
+ "이 패턴을 따르는 직접 작성한 함수 또한 사용할 수 있다"
  (= __
     (-> {}
         (assoc :a 1)
         (function-that-takes-a-map "hello" "there")))
 
- "We can also thread last using ->>"
+ "->> 을 이용해서 thread last 를 사용할수 있다"
  (= __
     (->> [1 2 3]
          (map inc)))
 
- "Most operations that take a collection can be threaded-last"
+ "컬렉션을 인수로 취하는 경우, 대부분의 thread-last 를 사용할수있다"
  (= __
     (->> a-list
          (map inc)
@@ -59,7 +59,7 @@
          (into [])
          (reduce +)))
 
- "We can use functions we have written ourselves that follow this pattern"
+ "이 패턴을 따르는 직접 작성한 함수 또한 사용할 수 있다"
  (= __
     (->> a-list-with-maps
          (function-that-takes-a-coll "hello" "there")
