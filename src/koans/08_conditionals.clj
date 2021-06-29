@@ -1,14 +1,12 @@
-(ns koans.07-conditionals
+(ns koans.08-conditionals
   (:require [koan-engine.core :refer :all]))
 
-(defn explain-defcon-level [exercise-term]
+(defn explain-exercise-velocity [exercise-term]
   (case exercise-term
-        :fade-out          :you-and-what-army
-        :double-take       :call-me-when-its-important
-        :round-house       :o-rly
-        :fast-pace         :thats-pretty-bad
-        :cocked-pistol     :sirens
-        :say-what?))
+        :bicycling        "pretty fast"
+        :jogging          "not super fast"
+        :walking          "not fast at all"
+        "is that even exercise?"))
 
 (meditations
   "결정해야만 하는 일들이 많을 것이다"
@@ -40,10 +38,10 @@
           'doom
           'more-doom))
 
-  "비상시에는 알람을 울려라"
-  (= :sirens
-     (explain-defcon-level __))
+  "비상시에는 빠르게 가야한다"
+  (= "pretty fast"
+     (explain-exercise-velocity __))
 
   "그러나 무얼 해야할지 모르겠다면 그 사실을 인정하라"
   (= __
-     (explain-defcon-level :yo-mama)))
+     (explain-exercise-velocity :watching-tv)))

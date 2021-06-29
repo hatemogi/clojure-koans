@@ -1,4 +1,4 @@
-(ns koans.05-maps
+(ns koans.06-maps
   (:require [koan-engine.core :refer :all]))
 
 (meditations
@@ -40,6 +40,12 @@
 
   "한 엔트리를 제거한 새 버전을 만들 수도 있다"
   (= {__ __} (dissoc {1 "January" 2 "February"} 2))
+  
+  "병합하는 것(merging) 으로 새로운 맵을 만들 수 있다"
+  (= {:a 1 :b 2 __ __} (merge {:a 1 :b 2} {:c 3}))
+
+  "병합할 때 같은 키를 가지는 엔트리(entry) 를 처리하는 특별한 방법을 지정할 수 있다"
+  (= {:a 1 :b __ :c 3} (merge-with + {:a 1 :b 1} {:b 1 :c 3}))
 
   "키목록이 필요하면 구할 수 있지만, 순서는 보장되지 않는다"
   (= (list __ __ __)
@@ -47,4 +53,11 @@
 
   "값들도 비슷한 방법으로 구할 수 있다"
   (= (list __ __ __)
-     (sort (vals {2010 "Vancouver" 2014 "Sochi" 2018 "PyeongChang"}))))
+     (sort (vals {2010 "Vancouver" 2014 "Sochi" 2018 "PyeongChang"})))
+       
+  "맵의 엔트리를 시퀀스(seq) 로써 순회(iterate) 할 수 있다"
+  (= {:a __ :b __}
+     (into {}
+           (map
+            (fn [[k v]] [k (inc v)])
+            {:a 1 :b 2}))))

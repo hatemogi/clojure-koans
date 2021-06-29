@@ -1,16 +1,16 @@
 Concepts / Language Features
 =====
 
-Quoting
-
 new record syntax
 Agents
 Vars
 state identity lifetime
-Metadata
 immutability / side effects
 type hints
 Pre and Post conditions of functions
+ex-info/ex-data
+reducers (?)
+transducers (?) - maybe just some basic ones, nothing too crazy
 
 Particular Functions
 =====
@@ -27,4 +27,3 @@ map-indexed
 partition-all
 partition-by
 repeatedly
-

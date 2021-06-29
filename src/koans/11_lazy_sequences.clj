@@ -1,4 +1,4 @@
-(ns koans.10-lazy-sequences
+(ns koans.11-lazy-sequences
   (:require [koan-engine.core :refer :all]))
 
 (meditations
@@ -17,12 +17,12 @@
      (drop __ (range 100)))
 
   "iterate로 무한 지연(lazy) 시퀀스를 만들 수 있다"
-  (= __ (take 20 (iterate inc 0)))
+  (= __ (take 8 (iterate (fn [x] (* x 2)) 1)))
 
   "반복이 핵심이다"
-  (= [:a :a :a :a :a :a :a :a :a :a ]
+  (= [:a :a :a :a :a :a :a :a :a :a]
      (repeat 10 __))
 
   "반복하기 위해 iterate를 쓸 수 있다"
-  (= (repeat 100 :foo)
-     (take 100 (iterate ___ :foo))))
+  (= (repeat 100 "hello")
+     (take 100 (iterate ___ "hello"))))

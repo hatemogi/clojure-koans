@@ -1,4 +1,4 @@
-(ns koans.06-functions
+(ns koans.07-functions
   (:require [koan-engine.core :refer :all]))
 
 (defn multiply-by-ten [n]
@@ -23,7 +23,7 @@
   (= __ (#(+ %1 %2 %3) 4 5 6))
 
   "필요 없는 전달인자는 건너 뛸 수도 있다"
-  (= __ (#(* 15 %2) 1 2))
+  (= __ (#(str "AA" %2) "bb" "CC"))
 
   "함수가 다른 함수를 만들어 낼 수 있다"
   (= 9 (((fn [] ___)) 4 5))

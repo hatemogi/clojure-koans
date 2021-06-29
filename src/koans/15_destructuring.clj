@@ -1,4 +1,4 @@
-(ns koans.14-destructuring
+(ns koans.15-destructuring
   (:require [koan-engine.core :refer :all]))
 
 (def test-address
@@ -12,16 +12,16 @@
          [:foo :bar]))
 
   "함수 정의에서도 쓸 수 있고"
-  (= (str "First comes love, "
-          "then comes marriage, "
-          "then comes Clojure with the baby carriage")
+  (= (str "An Oxford comma list of apples, "
+          "oranges, "
+          "and pears.")
      ((fn [[a b c]] __)
-      ["love" "marriage" "Clojure"]))
+      ["apples" "oranges" "pears"]))
 
   "또는 let 표현식에서도 쓴다"
-  (= "Rich Hickey aka The Clojurer aka Go Time aka Macro Killah"
+  (= "Rich Hickey aka The Clojurer aka Go Time aka Lambda Guru"
      (let [[first-name last-name & aliases]
-           (list "Rich" "Hickey" "The Clojurer" "Go Time" "Macro Killah")]
+           (list "Rich" "Hickey" "The Clojurer" "Go Time" "Lambda Guru")]
        __))
 
   "전체 전달인자를 되찾을 수 있다"

@@ -1,4 +1,4 @@
-(ns koans.13-recursion
+(ns koans.14-recursion
   (:require [koan-engine.core :refer :all]))
 
 (defn is-even? [n]
@@ -33,7 +33,7 @@
   (= '(1) (recursive-reverse [1]))
 
   "더 걸어갈수록 힘들어지지만 말이다"
-  (= '(5 4 3 2 1) (recursive-reverse [1 2 3 4 5]))
+  (= '(6 5 4 3 2) (recursive-reverse [2 3 4 5 6]))
 
   "간단한 것들은 간단하게 드러날 것이다"
   (= 1 (factorial 1))

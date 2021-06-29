@@ -24,13 +24,16 @@
   (= __ (not (= 1 nil)))
 
   "문자열, 키워드, 그리고 심볼: 오 이런!"
-  (= __ (= "foo" :foo 'foo))
+  (= __ (= "hello" :hello 'hello))
 
   "키보드를 눌러 키워드를 만들어 보라"
-  (= :foo (keyword __))
+  (= :hello (keyword __))
 
   "심볼은 우리 주변 어디에나 있다"
-  (= 'foo (symbol __))
+  (= 'hello (symbol __))
+
+  "무엇이 아무것도없음(nothing) 과 동일할까"
+  (= __ nil)
 
   "어떤 것들이 같을 수 없다면, 그들은 다른 것임에 틀림없다"
   (not= :fill-in-the-blank __))
