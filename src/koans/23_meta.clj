@@ -28,10 +28,10 @@
   (= __ (meta (merge {:a 1 :b 2}
                      '^{:foo :bar} {:b 3 :c 4})))
 
-  "메타 데이터를 유형 힌트로 사용하여 런타임 중 리플렉션을 피할 수 있다"
+  "메타데이터를 타입 힌트로 사용하여 런타임 중 리플렉션을 피할 수 있다"
   (= __ (#(.charAt ^String % 0) "Cast me"))
 
-  "객체의 메타 데이터를 직접 업데이트 할 수 있다"
+  "객체의 메타데이터를 직접 업데이트 할 수 있다"
   (= 8 (let [giants
              (with-meta
                'Giants
@@ -39,7 +39,7 @@
          (swap! (:world-series-titles (meta giants)) __)
          @(:world-series-titles (meta giants))))
 
-  "다른 객체로 부터 메타 데이터와 함께 세로운 객체를 만들 수 있다"
+  "다른 객체로 부터 메타데이터와 함께 새로운 객체를 만들 수 있다"
   (= {:league "National League" :park "AT&T Park"}
      (meta (vary-meta giants
                       assoc __ __)))

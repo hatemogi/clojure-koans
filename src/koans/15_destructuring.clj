@@ -12,24 +12,14 @@
          [:foo :bar]))
 
   "함수 정의에서도 쓸 수 있고"
-<<<<<<< HEAD:src/koans/15_destructuring.clj
   (= (str "An Oxford comma list of apples, "
           "oranges, "
           "and pears.")
-=======
-  (= (str "First comes love, "
-          "then comes marriage, "
-          "then comes Clojure with the baby carriage")
->>>>>>> korean:src/koans/14_destructuring.clj
      ((fn [[a b c]] __)
       ["apples" "oranges" "pears"]))
 
   "또는 let 표현식에서도 쓴다"
-<<<<<<< HEAD:src/koans/15_destructuring.clj
   (= "Rich Hickey aka The Clojurer aka Go Time aka Lambda Guru"
-=======
-  (= "Rich Hickey aka The Clojurer aka Go Time aka Macro Killah"
->>>>>>> korean:src/koans/14_destructuring.clj
      (let [[first-name last-name & aliases]
            (list "Rich" "Hickey" "The Clojurer" "Go Time" "Lambda Guru")]
        __))

@@ -10,10 +10,6 @@
   "컬렉션을 어떤 함수로 분류하려면 group-by를 쓰라"
   (= __ (group-by count ["hello" "world" "foo" "bar"]))
 
-<<<<<<< HEAD:src/koans/22_group_by.clj
-=======
-
->>>>>>> korean:src/koans/21_group_by.clj
   "filter와 remove를 한꺼번에 할 수 있다"
   (= (get-odds-and-evens [1 2 3 4 5])
      ((juxt filter remove) odd? [1 2 3 4 5])
